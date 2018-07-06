@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>描点工具</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,target-densitydpi=device-dpi">
+  <meta name="screen-orientation" content="landscape">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <style>
+    .state {
+      font-size: 15px;
+      display: flex;
+      flex-direction: row;
+      clear: both;
+      margin: 20px;
+    }
+
+    .state p {
+      margin: 10px 10px 0 0;
+    }
+
+    .state p :nth-child(1) {
+      font-weight: 900;
+      margin-right: 10px;
+    }
+
+    .state input {
+      width: 50px;
+    }
+
+    #state-x,
+    #state-y,
+    #state-w,
+    #state-h {
+      background-color: #b9b4aa;
+      border: none;
+    }
+
+    button {
+      width: 200px;
+      height: 30px;
+      display: block;
+      border: 2px solid black;
+      margin: 10px;
+      float: left;
+    }
+    /**/
+   .file-div{
+   	overflow: hidden;
+    width: 204px;
+    height: 25px;
+    float: left;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    background:#333333;
+    border:2px solid black;
+    color: #FFFFFF;
+   }
+   .file-p{
+       position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    line-height: 27px;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+   cursor:pointer
+   }
+  </style>
+</head>
+
+<body>
+  <!--<img src="" id="fileImg" alt="">-->
+  <div class="file-div">
+  	<p class="file-p">点击上传图片</p>
+  <input type="file" id="file" style="width:200px;display:block;border:2px solid black;float: left;opacity: 0;cursor:pointer" />
+  
+  </div>
+  
+  <div class="file-div">
+  	<p class="file-p">点击上传JSON</p>
+  <input type="file" id="file2" style="width:200px;display:block;border:2px solid black;float: left;cursor:pointer;opacity: 0;" />
+	 </div>
+  
+  <button id="new">添加描点</button>
+  <button id="build">生成描点数据</button>
+  <button id="closeBuild">关闭窗口</button>
+
+  <p id="data" style="display:none;font-size: 20px;
+    position: fixed;
+    width: 90%;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%,-50%,0);
+    background-color: white;
+    overflow: scroll;
+    padding: 20px;">
+  </p>
+
+  <div id="state" class="state">
+    <p style="margin-right:20px;">属性栏:</p>
+    <p><span>name:</span><input id="state-name" type="text"></p>
+    <p><span>x:</span><input id="state-x" type="text" readonly></p>
+    <p><span>y:</span><input id="state-y" type="text" readonly></p>
+    <p><span>w:</span><input id="state-w" type="text" readonly></p>
+    <p><span>h:</span><input id="state-h" type="text" readonly></p>
+  </div>
+
+  <script src="./lib/jquery-1.8.3.min.js"></script>
+  <script src="./lib/pixi.js"></script>
+  <script src="./lib/tweenjs.min.js"></script>
+  <script src="HomeScene.js"></script>
+  <script src="div.js"></script>
+  <script src="main.js"></script>
+  <script>
+    $('#closeBuild').click(function () {
+      $('#data').hide();
+    })
+  </script>
+</body>
+
+
+</html>
